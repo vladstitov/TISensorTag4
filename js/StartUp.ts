@@ -5,6 +5,7 @@
 
   module myapp{
     export class StartUp {
+
         private conn: ble.BLEConnector;
         private btnStartScan:JQuery;
         private btnStopScan: JQuery;

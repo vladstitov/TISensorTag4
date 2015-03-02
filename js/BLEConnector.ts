@@ -1,6 +1,7 @@
 ﻿/// <reference path="../scripts/typings/bluetoothle.d.ts" />
 module ble {
     export class BLEConnector {
+
         private ble:bluetoothle
         init1(ble: bluetoothle):BLEConnector {
             this.ble = ble;

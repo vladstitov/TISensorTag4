@@ -35,27 +35,7 @@
     <script src="scripts/BLEConnect.js"></script>
     <script src="scripts/index.js"></script>
     <script>
-        $(document).ready(function () {
-            onDeviceReady = function () {
-                console.log(bluetoothle);
-                if (bluetoothle) {
-                    var connector = new myapp.BLEConnect(bluetoothle);
-                    var services = new myapp.BleServices();
-
-                    connector.onConnected = function (address) {                       
-                       
-                        var servs = connector.getServicesByAddress(address);
-                       
-                       var chars = services.setServices(servs); 
-                       console.log('connector connected  to address ' + address);
-                       console.log(servs);
-                       console.log(chars);
-
-                    }
-                }
-            }
-            document.addEventListener('deviceready', onDeviceReady, false);
-        })
+      
     </script>
 </body>
 </html>

@@ -107,19 +107,19 @@
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="js\Connectors\Connector.js" />
-    <Content Include="js\Connectors\EvothingsConnector.js" />
-    <Content Include="js\Connectors\NobleConnector.js" />
-    <Content Include="js\Constants.js" />
-    <Content Include="js\SensorBase.js" />
-    <Content Include="js\Sensors\Accelerometer.js" />
-    <Content Include="js\Sensors\BarometricPressure.js" />
-    <Content Include="js\Sensors\Gyroscope.js" />
-    <Content Include="js\Sensors\Humidity.js" />
-    <Content Include="js\Sensors\IRTemperature.js" />
-    <Content Include="js\Sensors\Magnetometer.js" />
-    <Content Include="js\Sensors\SimpleKey.js" />
-    <Content Include="js\SensorTag.js" />
+    <Content Include="arch\Connectors\Connector.js" />
+    <Content Include="arch\Connectors\EvothingsConnector.js" />
+    <Content Include="arch\Connectors\NobleConnector.js" />
+    <Content Include="arch\Constants.js" />
+    <Content Include="arch\SensorBase.js" />
+    <Content Include="arch\Sensors\Accelerometer.js" />
+    <Content Include="arch\Sensors\BarometricPressure.js" />
+    <Content Include="arch\Sensors\Gyroscope.js" />
+    <Content Include="arch\Sensors\Humidity.js" />
+    <Content Include="arch\Sensors\IRTemperature.js" />
+    <Content Include="arch\Sensors\Magnetometer.js" />
+    <Content Include="arch\Sensors\SimpleKey.js" />
+    <Content Include="arch\SensorTag.js" />
     <Content Include="libs\test.js" />
     <Content Include="libs\ti-sensortag.js" />
     <Content Include="libs\TISensor.js" />
@@ -149,7 +149,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="index.html" />
-    <TypeScriptCompile Include="scripts\BLEConnect.ts" />
+    <TypeScriptCompile Include="js\StartUp.ts" />
+    <TypeScriptCompile Include="scripts\BLEConnector.ts" />
     <TypeScriptCompile Include="scripts\BleServices.ts" />
     <TypeScriptCompile Include="scripts\SansorBase.ts" />
     <TypeScriptCompile Include="scripts\TISensorTagConstants.ts" />

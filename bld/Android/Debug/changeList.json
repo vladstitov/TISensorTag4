@@ -1,0 +1,15 @@
+{
+  "changedFilesIos": [
+    "index.html",
+    "scripts\\BleServices.ts"
+  ],
+  "deletedFilesIos": [],
+  "addedPluginsIos": [],
+  "deletedPluginsIos": [],
+  "changedFiles": [
+    "index.html"
+  ],
+  "deletedFiles": [],
+  "addedPlugins": [],
+  "deletedPlugins": []
+}

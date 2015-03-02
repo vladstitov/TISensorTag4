@@ -1,11 +1,11 @@
-﻿/// <reference path="typings/bluetoothle.d.ts" />
-/// <reference path="typings/jquery.d.ts" />
+﻿/// <reference path="../scripts/typings/bluetoothle.d.ts" />
+/// <reference path="../scripts/typings/jquery.d.ts" />
 /// <reference path="index.ts" />
 /// <reference path="bleconnector.ts" />
 
   module myapp{
     export class StartUp {
-        private ble: ble.BLEConnector;
+        private conn: ble.BLEConnector;
         private btnStartScan:JQuery;
         private btnStopScan: JQuery;
         private message: JQuery;
@@ -23,7 +23,8 @@
             return obj.services;
         }
         constructor(b:ble.BLEConnector) {
-            this.ble = b;
+            this.conn = b;
+
             this.servicesObj = {};
             var paramsObj = { request: true };
             b.initialize((evt) => this.initializeSuccess(evt), (evt) => this.initializeError(evt), {request:true});
@@ -49,7 +50,7 @@
         }
         private discover(address: string): void {
             console.log('this.ble.discover ' + address);
-           this.ble.discover((evt: BleConn) => this.onAndroidServicesSuccess(evt), (obj) => this.onAndroidServicesError(obj), { address: address });
+           this.conn.discover((evt: BleConn) => this.onAndroidServicesSuccess(evt), (obj) => this.onAndroidServicesError(obj), { address: address });
         }
         private getServices(address:string): void {
             this.discover(address);     
@@ -71,7 +72,7 @@
       private onConnectError(evt):void{ console.log('onConnectError ',evt); }
 
       private connect(addr:string):void{
-      this.ble.connect((evt)=>this.onConnectSuccess(evt),(evt)=>this.onConnectError(evt), {address:addr});
+      this.conn.connect((evt)=>this.onConnectSuccess(evt),(evt)=>this.onConnectError(evt), {address:addr});
       }
 
       private onConnectClick(evt:JQueryEventObject):void{
@@ -122,7 +123,7 @@
             this.message.text('Scan stopped');
             this.btnStopScan.attr(DISABLED, DISABLED);
             this.btnStartScan.removeAttr(DISABLED);
-            this.ble.stopScan((evt) => this.stopScanSuccess(evt), (evt) => this.stopScanError(evt));
+            this.conn.stopScan((evt) => this.stopScanSuccess(evt), (evt) => this.stopScanError(evt));
         }
         private onStopScanClick(evt): void {
             this.stopScan();
@@ -135,7 +136,7 @@
         private startScan() {
             this.btnStartScan.attr(DISABLED, DISABLED);
             this.btnStopScan.removeAttr(DISABLED);
-            this.ble.startScan((evt:BleDev) => this.startScanSuccess(evt), (evt) => this.startScanError(evt), { serviceUuids: [] });
+            this.conn.startScan((evt:BleDev) => this.startScanSuccess(evt), (evt) => this.startScanError(evt), { serviceUuids: [] });
         }       
         private startScanError(evt) {console.log('startScanError', evt);}
         private initializeError(obj) { console.log("Initialize Error : " ,obj);}

@@ -120,6 +120,7 @@
     <Content Include="arch\Sensors\Magnetometer.js" />
     <Content Include="arch\Sensors\SimpleKey.js" />
     <Content Include="arch\SensorTag.js" />
+    <Content Include="js\ds\Constants.js" />
     <Content Include="libs\test.js" />
     <Content Include="libs\ti-sensortag.js" />
     <Content Include="libs\TISensor.js" />
@@ -149,12 +150,14 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="index.html" />
+    <TypeScriptCompile Include="js\ble\BLEConnector.ts" />
+    <TypeScriptCompile Include="js\ds\TheDevice.ts" />
+    <TypeScriptCompile Include="js\index.ts" />
+    <TypeScriptCompile Include="js\ds\Constants.ts" />
+    <TypeScriptCompile Include="js\ds\SensorBase.ts" />
     <TypeScriptCompile Include="js\StartUp.ts" />
-    <TypeScriptCompile Include="scripts\BLEConnector.ts" />
-    <TypeScriptCompile Include="scripts\BleServices.ts" />
     <TypeScriptCompile Include="scripts\SansorBase.ts" />
     <TypeScriptCompile Include="scripts\TISensorTagConstants.ts" />
-    <TypeScriptCompile Include="scripts\index.ts" />
     <TypeScriptCompile Include="scripts\platformOverrides.ts" />
     <Content Include="css\index.css" />
     <Content Include="packages.config" />

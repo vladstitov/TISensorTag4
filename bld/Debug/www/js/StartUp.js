@@ -29,6 +29,7 @@ var myapp;
         };
         StartUp.prototype.onAndroidServicesSuccess = function (evt) {
             console.log('onAndroidServicesSuccess ' + evt.status);
+            //console.log(JSON.stringify(evt));
             if (evt.status == 'discovered') {
                 this.servicesObj[evt.address] = evt;
                 this.onConnected(evt.address);

@@ -4,13 +4,44 @@
 
 module myapp {
 
+    class Descriptor {
+
+    }
+
+
+    class Chars {
+        characteristicUuid: string;
+        descriptors: any[];
+        properties: any;
+        read: boolean = false;
+        write: boolean=false;
+        notify: boolean=false;
+        private descrs: string[];
+        constructor(obj: any, name: string) {          
+
+            for (var str in obj) { this[str] = obj[str] }
+            if (obj.descriptors) {
+                var ar:string[] = [];
+                for (var i = 0, n = obj.descriptors.length; i < n; i++)ar.push(obj.descriptors[i].descriptorUuid);
+                this.descrs = ar;
+            }
+
+            if (obj.properties) for (var str in obj.properties) this[str] = obj.properties[str];
+           
+        }
+    }
+
+
     class Service {
         private SERVICE:string;
         private CONFIG:string;
         private PERIOD:string;
         private DATA: string;
         private NOTIFICATION: string;
+        private CALIBRATION: string;
         private chars: any;
+        private characteristics: any;
+        private known: {};
         getId(): string {
             return this.SERVICE;
         }
@@ -24,23 +55,40 @@ module myapp {
             return this.type === 3;
         }
 
-        initService(chars: any): boolean {
+        initService(obj: any): boolean {
+            var chars: any[] =obj.characteristics
             if (!this.chars) {
-                this.chars = chars;
+                this.characteristics = chars;
+                var chr = {};
+                var kn = this.known;
+                for (var i = 0, n = chars.length; i < n; i++) {
+                    var id: string = chars[i].characteristicUuid;
+                    var name: string = kn[id];
+                    if (!name) console.log('Unknown from device characteristic of: '+this.name +' '+ id );
+                    chr[id] = new Chars(chars[i],name);
+                }
+                this.chars = chr;
+               // console.log(this.name + ' got Chars: ');
+               // console.log(chars);
+               // console.log('My chars: ');
+               // console.log(this.obj);
+
                 return true;
             } else return false;
         }
-        constructor(obj: any,public name:string,public type:number) {
+        constructor(private obj: any, public name: string, public type: number) {
+            var kn: any = {};
             for (var str in obj) {
                 var val = obj[str];
                 this[str] = val;
-                this[val] = str;
+                kn[val] = str;
             }
+            this.known = kn;
         }
     }
 
     export class TheDevice {
-        private servs: BleService[]
+        private servs: Service[]
         private constants: any;
 
         private sensorTypes: any;
@@ -71,32 +119,27 @@ module myapp {
             return this.sensorTypes[id];
         }
 
-        private addService(obj:any): void {
+        private addService(obj:any):Service {
             var uuid: string = obj.serviceUuid;
             if (uuid) {
                 var ser: Service = this.getSeviceById(uuid);
                 if (ser) {
-                    if (ser.initService(obj.characteristics)) {
+                    if (ser.initService(obj)) {
                         console.log('Service initialized ' + ser.name);
-
+                        return ser;
                     } else console.log('ERROR duplicate service ' + uuid,obj);
                 }
                     
             }
-            
+            return null;
         }
-        setServices(ar: any[]): VoChars[] {
-            var out: BleService[] = [];
-            var chars: VoChars[] = [];
+        setServices(ar: any[]): Service[] {           
+            var srs:Service[] = [];
             for (var i = 0, n = ar.length; i < n; i++) {
-                this.addService(ar[i]);               
-
-               // var serv: BleService  = new BleService(ar[i])
-               // out.push(serv);
-              // chars = chars.concat(serv.getAllChars());
+                srs.push(this.addService(ar[i]));              
             }
-            this.servs = out;
-            return chars;
+            this.servs = srs;
+            return srs;
         }
 
     }

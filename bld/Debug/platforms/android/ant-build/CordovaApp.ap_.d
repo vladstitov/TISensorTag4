@@ -101,6 +101,7 @@ C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\De
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\scripts\StartUp.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\scripts\TISensorTag.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\scripts\TISensorTag.js.map \
+C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\scripts\TISensorTag.json \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\scripts\TISensorTag.ts \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\scripts\TISensorTagConstants.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\scripts\TISensorTagConstants.js.map \

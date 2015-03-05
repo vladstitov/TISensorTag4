@@ -1,15 +1,43 @@
 /// <reference path="constants.ts" />
 var myapp;
 (function (myapp) {
+    var Descriptor = (function () {
+        function Descriptor() {
+        }
+        return Descriptor;
+    })();
+    var Chars = (function () {
+        function Chars(obj, name) {
+            this.read = false;
+            this.write = false;
+            this.notify = false;
+            for (var str in obj) {
+                this[str] = obj[str];
+            }
+            if (obj.descriptors) {
+                var ar = [];
+                for (var i = 0, n = obj.descriptors.length; i < n; i++)
+                    ar.push(obj.descriptors[i].descriptorUuid);
+                this.descrs = ar;
+            }
+            if (obj.properties)
+                for (var str in obj.properties)
+                    this[str] = obj.properties[str];
+        }
+        return Chars;
+    })();
     var Service = (function () {
         function Service(obj, name, type) {
+            this.obj = obj;
             this.name = name;
             this.type = type;
+            var kn = {};
             for (var str in obj) {
                 var val = obj[str];
                 this[str] = val;
-                this[val] = str;
+                kn[val] = str;
             }
+            this.known = kn;
         }
         Service.prototype.getId = function () {
             return this.SERVICE;
@@ -23,9 +51,24 @@ var myapp;
         Service.prototype.isOther = function () {
             return this.type === 3;
         };
-        Service.prototype.initService = function (chars) {
+        Service.prototype.initService = function (obj) {
+            var chars = obj.characteristics;
             if (!this.chars) {
-                this.chars = chars;
+                this.characteristics = chars;
+                var chr = {};
+                var kn = this.known;
+                for (var i = 0, n = chars.length; i < n; i++) {
+                    var id = chars[i].characteristicUuid;
+                    var name = kn[id];
+                    if (!name)
+                        console.log('Unknown from device characteristic of: ' + this.name + ' ' + id);
+                    chr[id] = new Chars(chars[i], name);
+                }
+                this.chars = chr;
+                // console.log(this.name + ' got Chars: ');
+                // console.log(chars);
+                // console.log('My chars: ');
+                // console.log(this.obj);
                 return true;
             }
             else
@@ -60,22 +103,23 @@ var myapp;
             if (uuid) {
                 var ser = this.getSeviceById(uuid);
                 if (ser) {
-                    if (ser.initService(obj.characteristics)) {
+                    if (ser.initService(obj)) {
                         console.log('Service initialized ' + ser.name);
+                        return ser;
                     }
                     else
                         console.log('ERROR duplicate service ' + uuid, obj);
                 }
             }
+            return null;
         };
         TheDevice.prototype.setServices = function (ar) {
-            var out = [];
-            var chars = [];
+            var srs = [];
             for (var i = 0, n = ar.length; i < n; i++) {
-                this.addService(ar[i]);
+                srs.push(this.addService(ar[i]));
             }
-            this.servs = out;
-            return chars;
+            this.servs = srs;
+            return srs;
         };
         return TheDevice;
     })();

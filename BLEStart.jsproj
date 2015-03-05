@@ -128,6 +128,7 @@
     <Content Include="scripts\jquery-2.1.3.js" />
     <Content Include="scripts\jquery-2.1.3.min.js" />
     <Content Include="scripts\jquery-2.1.3.min.map" />
+    <Content Include="scripts\TISensorTag.json" />
     <Folder Include="images\" />
     <Content Include="libs\jquery-2.1.3.min.js" />
     <Content Include="merges\android\scripts\android2.3-jscompat.js" />

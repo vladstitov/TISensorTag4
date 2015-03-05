@@ -4,6 +4,7 @@
     <ReferenceCachePath>C:\Users\VladHome\AppData\Local\Temp\BLEStart_refcache</ReferenceCachePath>
     <ToolsVersionPromptShown>1.1</ToolsVersionPromptShown>
     <ShowAllFiles>true</ShowAllFiles>
+    <AutoRefresh>false</AutoRefresh>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
     <DebuggerFlavor>AndroidDevice</DebuggerFlavor>

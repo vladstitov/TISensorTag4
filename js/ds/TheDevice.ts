@@ -32,7 +32,7 @@ module myapp {
     }
 
 
-    class Service {
+  export  class Service {
         private SERVICE:string;
         private CONFIG:string;
         private PERIOD:string;
@@ -115,7 +115,7 @@ module myapp {
             console.log('The Device types: ', types);
         }
 
-        getSeviceById(id: string): Service {
+        private getSeviceById(id: string): Service {
             return this.sensorTypes[id];
         }
 

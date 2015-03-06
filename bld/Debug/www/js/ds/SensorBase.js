@@ -1,7 +1,7 @@
 /// <reference path="../ble/bleconnector.ts" />
 /**
- * Created by Vlad on 3/2/2015.
- */
+* Created by Vlad on 3/2/2015.
+*/
 var sens;
 (function (sens) {
     var SensorBase = (function () {
@@ -17,9 +17,10 @@ var sens;
         SensorBase.prototype.initService = function (service) {
             // this.DATA_ID.test
             // for (var ci in service.characteristics) {
-            //  var uuid = 
+            //  var uuid =
             //}
         };
+
         SensorBase.prototype.enable = function (value) {
             var val = value || 1;
             // this.conn.wr

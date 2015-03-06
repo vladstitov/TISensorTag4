@@ -1,4 +1,4 @@
-/// <reference path="../scripts/typings/bluetoothle.d.ts" />
+﻿/// <reference path="../scripts/typings/bluetoothle.d.ts" />
 /// <reference path="../scripts/typings/jquery.d.ts" />
 /// <reference path="index.ts" />
 /// <reference path="ble/bleconnector.ts" />
@@ -13,28 +13,42 @@ var myapp;
             this.onDisconnected = function (evt) {
             };
             this.conn = b;
+
             this.servicesObj = {};
             var paramsObj = { request: true };
-            b.initialize(function (evt) { return _this.initializeSuccess(evt); }, function (evt) { return _this.initializeError(evt); }, { request: true });
+            b.initialize(function (evt) {
+                return _this.initializeSuccess(evt);
+            }, function (evt) {
+                return _this.initializeError(evt);
+            }, { request: true });
+
             //console.log('Started App ', b);
-            this.btnStopScan = $('#btnStopScan').attr(DISABLED, DISABLED).on(CLICK, null, function (evt) { return _this.onStopScanClick(evt); });
-            this.btnStartScan = $('#btnStartScan').attr(DISABLED, DISABLED).on(CLICK, null, function (evt) { return _this.onStartScanClick(evt); });
-            this.btnConnect = $('#btnConnect').attr(DISABLED, DISABLED).on(CLICK, null, function (evt) { return _this.onConnectClick(evt); });
+            this.btnStopScan = $('#btnStopScan').attr(DISABLED, DISABLED).on(CLICK, null, function (evt) {
+                return _this.onStopScanClick(evt);
+            });
+            this.btnStartScan = $('#btnStartScan').attr(DISABLED, DISABLED).on(CLICK, null, function (evt) {
+                return _this.onStartScanClick(evt);
+            });
+            this.btnConnect = $('#btnConnect').attr(DISABLED, DISABLED).on(CLICK, null, function (evt) {
+                return _this.onConnectClick(evt);
+            });
             this.message = $('#message');
-            this.selDevices = $('#devices').on(CHANGE, null, function (evt) { return _this.onSelDevicesChange(evt); });
+            this.selDevices = $('#devices').on(CHANGE, null, function (evt) {
+                return _this.onSelDevicesChange(evt);
+            });
         }
         StartUp.prototype.getServicesByAddress = function (address) {
             var obj = this.servicesObj[address];
             return obj.services;
         };
+
         StartUp.prototype.onAndroidServicesSuccess = function (evt) {
             console.log('onAndroidServicesSuccess ' + evt.status);
-            //console.log(JSON.stringify(evt));
+
             if (evt.status == 'discovered') {
                 this.servicesObj[evt.address] = evt;
                 this.onConnected(evt.address);
-            }
-            else
+            } else
                 console.log('onCharacteristicsSuccess', evt);
         };
         StartUp.prototype.onAndroidServicesError = function (obj) {
@@ -43,7 +57,11 @@ var myapp;
         StartUp.prototype.discover = function (address) {
             var _this = this;
             console.log('this.ble.discover ' + address);
-            this.conn.discover(function (evt) { return _this.onAndroidServicesSuccess(evt); }, function (obj) { return _this.onAndroidServicesError(obj); }, { address: address });
+            this.conn.discover(function (evt) {
+                return _this.onAndroidServicesSuccess(evt);
+            }, function (obj) {
+                return _this.onAndroidServicesError(obj);
+            }, { address: address });
         };
         StartUp.prototype.getServices = function (address) {
             this.discover(address);
@@ -55,7 +73,7 @@ var myapp;
                 if (typeof addr == 'string' && addr.length > 2) {
                     if (this.servicesObj[evt.address])
                         this.onConnected(evt.address);
-                    else
+else
                         this.getServices(evt.address);
                 }
             }
@@ -65,16 +83,21 @@ var myapp;
         StartUp.prototype.onConnectError = function (evt) {
             console.log('onConnectError ', evt);
         };
+
         StartUp.prototype.connect = function (addr) {
             var _this = this;
-            this.conn.connect(function (evt) { return _this.onConnectSuccess(evt); }, function (evt) { return _this.onConnectError(evt); }, { address: addr });
+            this.conn.connect(function (evt) {
+                return _this.onConnectSuccess(evt);
+            }, function (evt) {
+                return _this.onConnectError(evt);
+            }, { address: addr });
         };
+
         StartUp.prototype.onConnectClick = function (evt) {
             if (this.mode == 1) {
                 this.stopScan();
                 return;
-            }
-            else {
+            } else {
                 var addr = this.getSelectedDeviceAddress();
                 console.log(addr);
                 if (addr && addr.length > 2) {
@@ -83,6 +106,7 @@ var myapp;
                 }
             }
         };
+
         StartUp.prototype.getSelectedDeviceAddress = function () {
             return this.selDevices.val();
         };
@@ -90,12 +114,12 @@ var myapp;
             // console.log(evt.currentTarget);
         };
         StartUp.prototype.initializeSuccess = function (obj) {
-            //  console.log("Initialize Success : ",obj);
             if (obj.status == "enabled")
                 this.startScan();
-            else
+else
                 console.log("Unexpected Initialize Status", obj);
         };
+
         StartUp.prototype.addDevice = function (dev) {
             if (!this.devices[dev.address]) {
                 this.btnConnect.removeAttr(DISABLED);
@@ -107,9 +131,9 @@ var myapp;
             this.mode = 1;
             if (evt.status == "scanResult")
                 this.addDevice(new VoDevice(evt));
-            else if (evt.status == "scanStarted")
+else if (evt.status == "scanStarted")
                 this.message.text('Scan Started...');
-            else
+else
                 this.message.text('ERROR: ' + JSON.stringify(evt));
         };
         StartUp.prototype.onStartScanClick = function (evt) {
@@ -120,7 +144,11 @@ var myapp;
             this.message.text('Scan stopped');
             this.btnStopScan.attr(DISABLED, DISABLED);
             this.btnStartScan.removeAttr(DISABLED);
-            this.conn.stopScan(function (evt) { return _this.stopScanSuccess(evt); }, function (evt) { return _this.stopScanError(evt); });
+            this.conn.stopScan(function (evt) {
+                return _this.stopScanSuccess(evt);
+            }, function (evt) {
+                return _this.stopScanError(evt);
+            });
         };
         StartUp.prototype.onStopScanClick = function (evt) {
             this.stopScan();
@@ -136,7 +164,11 @@ var myapp;
             var _this = this;
             this.btnStartScan.attr(DISABLED, DISABLED);
             this.btnStopScan.removeAttr(DISABLED);
-            this.conn.startScan(function (evt) { return _this.startScanSuccess(evt); }, function (evt) { return _this.startScanError(evt); }, { serviceUuids: [] });
+            this.conn.startScan(function (evt) {
+                return _this.startScanSuccess(evt);
+            }, function (evt) {
+                return _this.startScanError(evt);
+            }, { serviceUuids: [] });
         };
         StartUp.prototype.startScanError = function (evt) {
             console.log('startScanError', evt);
@@ -147,6 +179,7 @@ var myapp;
         return StartUp;
     })();
     myapp.StartUp = StartUp;
+
     var VoDevice = (function () {
         function VoDevice(obj) {
             for (var str in obj)

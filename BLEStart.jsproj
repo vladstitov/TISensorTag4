@@ -153,6 +153,7 @@
     <Content Include="index.html" />
     <TypeScriptCompile Include="js\ble\BLEConnector.ts" />
     <TypeScriptCompile Include="js\ds\TheDevice.ts" />
+    <TypeScriptCompile Include="js\ds\TISensors.ts" />
     <TypeScriptCompile Include="js\index.ts" />
     <TypeScriptCompile Include="js\ds\Constants.ts" />
     <TypeScriptCompile Include="js\ds\SensorBase.ts" />
@@ -248,7 +249,7 @@
     <TypeScriptCompile Include="scripts\typings\jquery.d.ts" />
   </ItemGroup>
   <PropertyGroup>
-    <TypeScriptToolsVersion>1.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
     <DefaultReferenceGroup>Implicit (Multi-Device Apps)</DefaultReferenceGroup>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

@@ -72,7 +72,7 @@ module myapp {
             console.log('The Device types: ', types);
         }
 
-        getSeviceById(id: string): Service {
+       private getSeviceById(id: string): Service {
             return this.sensorTypes[id];
         }
 

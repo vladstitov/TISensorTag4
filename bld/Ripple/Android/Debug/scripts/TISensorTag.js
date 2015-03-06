@@ -1,4 +1,4 @@
-/// <reference path="typings/bluetoothle.d.ts" />
+﻿/// <reference path="typings/bluetoothle.d.ts" />
 var sensors;
 (function (sensors) {
     var TISeansorTag = (function () {

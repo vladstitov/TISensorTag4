@@ -1,10 +1,11 @@
-/// <reference path="ds/thedevice.ts" />
+﻿/// <reference path="ds/thedevice.ts" />
 /// <reference path="ds/constants.ts" />
 var bluetoothle;
 var CLICK = 'click';
 var DISABLED = 'disabled';
 var CHANGE = 'change';
 var TISensorTag;
+
 $(document).ready(function () {
     var onDeviceReady = function () {
         console.log(bluetoothle);
@@ -12,8 +13,10 @@ $(document).ready(function () {
             var conn = new ble.BLEConnector(bluetoothle);
             var connector = new myapp.StartUp(conn);
             var services = new myapp.TheDevice(CONSTS);
+
             connector.onConnected = function (address) {
                 var servs = connector.getServicesByAddress(address);
+
                 var chars = services.setServices(servs);
                 console.log('connector connected  to address ' + address);
                 console.log(servs);
@@ -23,6 +26,7 @@ $(document).ready(function () {
     };
     document.addEventListener('deviceready', onDeviceReady, false);
 });
+
 var CONSTS = {
     SENSORS: {
         ACCELEROMETER: {
@@ -54,7 +58,8 @@ var CONSTS = {
         BAROMETER: {
             SERVICE: 'f000aa40-0451-4000-b000-000000000000',
             CONFIG: 'f000aa42-0451-4000-b000-000000000000',
-            DATA: 'f000aa41-0451-4000-b000-000000000000'
+            DATA: 'f000aa41-0451-4000-b000-000000000000',
+            CALIBRATION: 'f000aa43-0451-4000-b000-000000000000'
         },
         GYROSCOPE: {
             SERVICE: 'f000aa50-0451-4000-b000-000000000000',
@@ -72,7 +77,6 @@ var CONSTS = {
     },
     OTHERS: {
         NOTIFICATION: '00002902-0000-1000-8000-00805f9b34fb',
-        PRESSURE_CALIBRATION: 'f000aa4304514000b000000000000000',
         GENERIC_ACCESS: '1800',
         GENERIC_ATTRIBUTE: '1801',
         DEVICE_INFORMATION: '180a',

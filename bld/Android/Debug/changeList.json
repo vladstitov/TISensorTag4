@@ -1,13 +1,12 @@
 {
   "changedFilesIos": [
-    "js\\ds\\Constants.js",
-    "scripts\\TISensorTag.json"
+    "index.html"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "js\\ds\\Constants.js"
+    "index.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

@@ -30,6 +30,8 @@ C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\De
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\_where-is-www.txt \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\arch \
+C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\BLEStart.sln \
+C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\BLEStart.v12.suo \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\cordova.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\cordova.TypeScript.DefinitelyTyped.0.8.2.nupkg \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\cordova_plugins.js \
@@ -71,15 +73,16 @@ C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\De
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ble\BLEConnector.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ble\BLEConnector.js.map \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ble\BLEConnector.ts \
-C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\constants.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\Constants.js.map \
-C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\Constants.ts \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\SensorBase.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\SensorBase.js.map \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\SensorBase.ts \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\TheDevice.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\TheDevice.js.map \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\TheDevice.ts \
+C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\TISensors.js \
+C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\TISensors.js.map \
+C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\js\ds\TISensors.ts \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\libs\jquery-2.1.3.min.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\libs\test.js \
 C:\Users\VladHome\Documents\Visual Studio 2013\Projects\BLEStart\BLEStart\bld\Debug\platforms\android\assets\www\libs\ti-sensortag.js \

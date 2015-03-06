@@ -21,7 +21,7 @@
 
         getServicesByAddress(address: string) {
             var obj = this.servicesObj[address];
-            return obj.services;
+            return obj;
         }
         constructor(b:ble.BLEConnector) {
             this.conn = b;

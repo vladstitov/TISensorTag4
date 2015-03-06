@@ -25,7 +25,7 @@ var myapp;
         }
         StartUp.prototype.getServicesByAddress = function (address) {
             var obj = this.servicesObj[address];
-            return obj.services;
+            return obj;
         };
         StartUp.prototype.onAndroidServicesSuccess = function (evt) {
             console.log('onAndroidServicesSuccess ' + evt.status);

@@ -120,7 +120,6 @@
     <Content Include="arch\Sensors\Magnetometer.js" />
     <Content Include="arch\Sensors\SimpleKey.js" />
     <Content Include="arch\SensorTag.js" />
-    <Content Include="js\ds\Constants.js" />
     <Content Include="libs\test.js" />
     <Content Include="libs\ti-sensortag.js" />
     <Content Include="libs\TISensor.js" />
@@ -155,7 +154,6 @@
     <TypeScriptCompile Include="js\ds\TheDevice.ts" />
     <TypeScriptCompile Include="js\ds\TISensors.ts" />
     <TypeScriptCompile Include="js\index.ts" />
-    <TypeScriptCompile Include="js\ds\Constants.ts" />
     <TypeScriptCompile Include="js\ds\SensorBase.ts" />
     <TypeScriptCompile Include="js\StartUp.ts" />
     <TypeScriptCompile Include="scripts\SansorBase.ts" />

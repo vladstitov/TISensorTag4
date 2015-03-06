@@ -1,13 +1,63 @@
-﻿module tisensor {
+﻿module myapp {
     export class ViewData {
         value: string;
         parameters: string;
     }
-    export interface ParseData {
-        parse: (rawData:any) => ViewData;
-        incode: (data: any) => any;
+
+        
+
+    export class SensorBase {
+        service:TheService
+        constructor(public view: JQuery, private connector: ble.BLEConnector, service: myapp.TheService) {
+            this.service = service;
+           this.init();
+        }
+
+        start(): void {
+
+        }
+
+        stop(): void {
+
+        }
+
+        init(): void {
+
+        }
     }
-    export class IRTemperature implements ParseData {
+
+    export class IRTemperature extends SensorBase { 
+         
+        init(): void {
+            var chars: Charc[] = this.service.getCharacteristics();
+            for (var i = 0, n = chars.length; i < n; i++) {
+                var ch: Charc = chars[i];
+                switch (ch.name) {
+                    case 'IRTEMPERATURE_DATA':
+                        break;
+                    case 'IRTEMPERATURE_CONFIG':
+                        break;
+                }
+                console.log(ch.properties);
+                 }
+        }
+              
+        parse(rawData: any): ViewData {
+            var out: ViewData = new ViewData;
+            return out;
+        }
+        incode(data: any): any {
+            var out: any = {};
+            return out;
+        }
+
+        initUI(view: JQuery): void {
+
+        }
+
+    }
+    export class Pressure extends SensorBase {
+        view: JQuery
         parse(rawData: any): ViewData {
             var out: ViewData = new ViewData;
             return out;
@@ -18,7 +68,8 @@
         }
 
     }
-    export class Pressure implements ParseData {
+    export class Humidity extends SensorBase {
+        view: JQuery
         parse(rawData: any): ViewData {
             var out: ViewData = new ViewData;
             return out;
@@ -29,7 +80,8 @@
         }
 
     }
-    export class Humidity implements ParseData {
+    export class Magnetometer extends SensorBase {
+        view: JQuery
         parse(rawData: any): ViewData {
             var out: ViewData = new ViewData;
             return out;
@@ -40,7 +92,8 @@
         }
 
     }
-    export class Magnetometer implements ParseData {
+    export class Accelerometer extends SensorBase {
+        view: JQuery
         parse(rawData: any): ViewData {
             var out: ViewData = new ViewData;
             return out;
@@ -51,7 +104,8 @@
         }
 
     }
-    export class Accelerometer implements ParseData {
+    export class Barometer extends SensorBase {
+        view: JQuery
         parse(rawData: any): ViewData {
             var out: ViewData = new ViewData;
             return out;
@@ -62,7 +116,9 @@
         }
 
     }
-    export class Barometer implements ParseData {
+
+    export class Gyroscope extends SensorBase {
+        view: JQuery
         parse(rawData: any): ViewData {
             var out: ViewData = new ViewData;
             return out;
@@ -73,8 +129,8 @@
         }
 
     }
-
-    export class Gyroscope implements ParseData {
+    export class Inputs extends SensorBase {
+        view: JQuery
         parse(rawData: any): ViewData {
             var out: ViewData = new ViewData;
             return out;
@@ -85,18 +141,8 @@
         }
 
     }
-    export class Inputs implements ParseData {
-        parse(rawData: any): ViewData {
-            var out: ViewData = new ViewData;
-            return out;
-        }
-        incode(data: any): any {
-            var out: any = {};
-            return out;
-        }
-
-    }
-    export class Generic implements ParseData {
+    export class Generic extends SensorBase {
+        view: JQuery
         parse(rawData: any): ViewData {
             var out: ViewData = new ViewData;
             return out;
